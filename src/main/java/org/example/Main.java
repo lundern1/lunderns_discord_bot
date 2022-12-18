@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.JDA;
 import org.example.Listeners.AramListener;
 import org.example.Listeners.MessageListener;
 
+import static org.example.MyUtilsMappe.JDASettings.addEvents;
 import static org.example.MyUtilsMappe.JDASettings.createJDA;
 
 public class Main {
@@ -13,8 +14,7 @@ public class Main {
         String token = config.get("TOKEN");
 
         JDA jda = createJDA(token);
-        jda.addEventListener(new AramListener());
-        jda.addEventListener(new MessageListener());
+        addEvents(jda);
 
     }
 }

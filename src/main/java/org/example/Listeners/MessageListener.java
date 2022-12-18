@@ -19,9 +19,6 @@ public class MessageListener extends ListenerAdapter {
 
         String message = event.getMessage().getContentDisplay();
 
-        if (message.equals("liker du rimming")) {
-            event.getChannel().sendMessage(":+1:").queue();
-        }
 
         if (message.equals("test")){
             String myUserid = Main.config.get("MY_USERID");

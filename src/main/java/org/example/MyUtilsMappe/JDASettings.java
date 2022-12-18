@@ -3,10 +3,17 @@ package org.example.MyUtilsMappe;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
+import org.example.Listeners.AramListener;
+import org.example.Listeners.CommandListener;
+import org.example.Listeners.MessageListener;
+
+import java.util.LinkedList;
 
 public class JDASettings {
+
         public static JDA createJDA(String token){
              return JDABuilder
                     .createDefault(token) // token for discord bot i devolper portal
@@ -22,4 +29,11 @@ public class JDASettings {
                     .build();
         }
 
+        public static void addEvents(JDA jda){
+            jda.addEventListener(
+                    new AramListener(),
+                    new CommandListener(),
+                    new MessageListener()
+            );
+        }
 }
