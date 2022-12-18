@@ -5,7 +5,7 @@ import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
 
-import static org.example.MyUtilsMappe.MyUtils.getRandomNumberInRange;
+import static org.example.MyUtilsMappe.MyUtils.getRandomNumber;
 
 public class MessageListener extends ListenerAdapter {
     @Override
@@ -23,11 +23,11 @@ public class MessageListener extends ListenerAdapter {
         if (message.equals("test")){
             String myUserid = Main.config.get("MY_USERID");
             if (event.getMember().getUser().getId().equals(myUserid)){
-                int i = getRandomNumberInRange(0, listeNormal.length-1);
+                int i = getRandomNumber(0, listeNormal.length-1);
                 event.getChannel().sendMessage(listeNormal[i]).queue();
             }
             else {
-                int i = getRandomNumberInRange(0, listeTroll.length-1);
+                int i = getRandomNumber(0, listeTroll.length-1);
                 event.getChannel().sendMessage(listeTroll[i]).queue();
             }
         }

@@ -2,9 +2,11 @@ package org.example;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
-import org.example.Listeners.AramListener;
-import org.example.Listeners.MessageListener;
+import org.example.MyUtilsMappe.FolderReader;
 
+import java.io.File;
+
+import static org.example.MyUtilsMappe.FolderReader.getFiles;
 import static org.example.MyUtilsMappe.JDASettings.addEvents;
 import static org.example.MyUtilsMappe.JDASettings.createJDA;
 

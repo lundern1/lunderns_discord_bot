@@ -21,8 +21,6 @@ public class AramListener extends ListenerAdapter {
         Guild guild = event.getGuild();
         RichPresence rp = activity.asRichPresence();
 
-        System.out.println(rp.getDetails());
-
         if (rp.getDetails() != null){
             // sjekker om man prøver seg på aram
             if(rp.getDetails().equals(("Howling Abyss (ARAM)")) || rp.getDetails().equals(("Howling Abyss (Custom)"))){
@@ -35,7 +33,7 @@ public class AramListener extends ListenerAdapter {
 
 
                     Member member = event.getMember();
-                    guild.ban(member,7, TimeUnit.DAYS).queue();
+                    //guild.ban(member,7, TimeUnit.DAYS).queue(); OBS! banner en bruker fra serveren
                 }
             }
         }
