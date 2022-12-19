@@ -1,0 +1,3 @@
+type repons;liste av mulige svar: svar1,svar2
+listeNormal;nei,ja,stor sjanse,det vil tiden vise,sannsynligvis
+listeTroll;nei,haha aldri,ikke for deg

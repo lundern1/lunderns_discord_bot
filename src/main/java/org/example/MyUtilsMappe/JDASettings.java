@@ -10,16 +10,19 @@ import org.example.Listeners.CommandListener;
 import org.example.Listeners.MessageListener;
 import org.example.Listeners.SpotifyListener;
 
-
+/**
+ * en klasse med alle funksjoner som omhandler JDA
+ */
 public class JDASettings {
 
+        // bygger en JDA med alle innstillinger man trenger
         public static JDA createJDA(String token){
              return JDABuilder
                     .createDefault(token) // token for discord bot i devolper portal
                     .setActivity(Activity.watching("Wednesday 😍")) // setter aktivitet
                     .enableIntents(GatewayIntent.MESSAGE_CONTENT) // lese meldinger
                     .enableIntents(GatewayIntent.GUILD_PRESENCES) // lese brukers aktivitet
-                    .enableIntents(GatewayIntent.GUILD_MEMBERS)
+                    .enableIntents(GatewayIntent.GUILD_MEMBERS) // tilgang til medlemmer
                     .enableCache(CacheFlag.ACTIVITY) // tillater caching av bruker aktivitet
 
                     // kode fungerer uten disse to - kan bli problemer på større servere
@@ -28,7 +31,11 @@ public class JDASettings {
                     .build();
         }
 
-        public static void addEvents(JDA jda){
+    /**
+     * legger til alle listeners man trenger i JDAet
+     * @param jda jda man skal legge til i
+     */
+    public static void addEvents(JDA jda){
             jda.addEventListener(
                     new AramListener(),
                     new CommandListener(),

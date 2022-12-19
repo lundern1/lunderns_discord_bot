@@ -4,29 +4,62 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.RichPresence;
 import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.events.user.UserActivityStartEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.example.Main;
 
+/**
+ * klasse som lytter til aktiviteten til en bruker som hører på
+ * musikk via Spotify
+ */
 public class SpotifyListener extends ListenerAdapter {
+    private String lastSongPlayed = "";
 
+    /**
+     * gir beskjed om at listeneren har lastet globalt
+     * @param event
+     */
     @Override
     public void onReady(ReadyEvent event) {
         System.out.println("spotify listener klar!");
     }
 
-    private String lastSong = "";
-
+    /**
+     * lytter etter om man hører på ny sang på spotify for hver ny aktivitet
+     * @param event eventobjekt som fyrte en ny sang
+     */
     @Override
     public void onUserActivityStart(UserActivityStartEvent event) {
-        User user = event.getUser();
         Activity activity = event.getNewActivity();
-        Guild guild = event.getGuild();
         RichPresence rp = activity.asRichPresence();
 
-        if (rp.getName().equals("Spotify") && !lastSong.equals(rp.getDetails())){
-            lastSong = rp.getDetails();
-            event.getJDA().getTextChannelById("1054105565141405736").sendMessage(user.getAsTag()+" hører på: " + rp.getState().split(";")[0] + " - " + rp.getDetails()).queue();
+        // hvis man hører på spotify og forrige sang man hørte på ikke var lik som denne
+        if (rp.getName().equals("Spotify") && !lastSongPlayed.equals(rp.getDetails()))
+            sendSpotifySong(event, rp);
+    }
+
+    /**
+     * sender spotify sang som blir hørt på i discord
+     * @param event eventobjekt som fyrte på en ny sang
+     * @param rp richpresence av eventet
+     */
+    public void sendSpotifySong(UserActivityStartEvent event, RichPresence rp){
+        Guild guild = event.getGuild();
+        User user = event.getUser();
+
+        lastSongPlayed = rp.getDetails();
+        String newSongAsString = user.getAsTag()+" hører på: " + rp.getState().split(";")[0] + " - " + rp.getDetails();
+
+        // prøv å se om kanal id til spotify fungerte.
+        try {
+            String generalID = Main.config.get("GUILDSPOTIFY");
+            TextChannel channel = guild.getTextChannelById(generalID);
+            channel.sendMessage(newSongAsString).queue();
+        }
+        catch (Exception e){
+            throw new RuntimeException();
         }
     }
 }

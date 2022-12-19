@@ -2,14 +2,17 @@ package org.example;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
-import org.example.MyUtilsMappe.FolderReader;
-
-import java.io.File;
-
-import static org.example.MyUtilsMappe.FolderReader.getFiles;
 import static org.example.MyUtilsMappe.JDASettings.addEvents;
 import static org.example.MyUtilsMappe.JDASettings.createJDA;
 
+/******************************************
+ * Discord bot som blant annet:           *
+ * - banner folk som spiller aram         *
+ * - logger spotify sanger man hører på   *
+ * - lytter på meldinger folk sender      *
+ * - slash command for å få bilder        *
+ * @lundern1 - github                     *
+ ******************************************/
 public class Main {
     public static final Dotenv config = Dotenv.configure().ignoreIfMissing().load();;
     public static void main(String[] args) {
