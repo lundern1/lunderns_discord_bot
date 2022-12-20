@@ -5,10 +5,11 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import org.example.Listeners.AramListener;
-import org.example.Listeners.CommandListener;
-import org.example.Listeners.MessageListener;
-import org.example.Listeners.SpotifyListener;
+import org.example.ListenerMappe.AramListener;
+import org.example.ListenerMappe.CommandListener;
+import org.example.ListenerMappe.MessageListener;
+import org.example.ListenerMappe.SpotifyListener;
+import org.example.spillmappe.GameListener;
 
 /**
  * en klasse med alle funksjoner som omhandler JDA
@@ -40,7 +41,8 @@ public class JDASettings {
                     new AramListener(),
                     new CommandListener(),
                     new MessageListener(),
-                    new SpotifyListener()
+                    new SpotifyListener(),
+                    new GameListener()
             );
         }
 }

@@ -1,4 +1,4 @@
-package org.example.Listeners;
+package org.example.ListenerMappe;
 
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
@@ -31,9 +31,10 @@ public class AramListener extends ListenerAdapter {
         Activity activity = event.getNewActivity();
         RichPresence rp = activity.asRichPresence();
 
-        // if aktivitet ikke er null sjekk om bruker spiller aram
-        if (rp.getDetails() != null){
+        // try aktivitet ikke er null sjekk om bruker spiller aram
+        try {
             sjekkForAram(rp, event);
+        } catch (NullPointerException e) {
         }
 
     }

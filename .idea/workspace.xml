@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96af9770-96a3-4adc-b31a-4c1efc99d76a" name="Changes" comment="ryddigere kode&#10;JAVADOC">
+    <list default="true" id="96af9770-96a3-4adc-b31a-4c1efc99d76a" name="Changes" comment="start på coinflip game">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/Coinflip.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/DatabaseHandler.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/GameListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Listeners/AramListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Listeners/AramListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Listeners/AramListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/AramListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Listeners/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/CommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Listeners/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Listeners/SpotifyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/SpotifyListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/FolderReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/FolderReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/JDASettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/JDASettings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +45,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Downloaded.Files.Path.Enabled": "false",
+    "OverrideImplement.combined": "false",
+    "OverrideImplement.overriding.sorted": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -112,7 +119,13 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1671471432561</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="start på coinflip game">
+      <created>1671489380709</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1671489380709</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +144,7 @@
     <MESSAGE value="command listener" />
     <MESSAGE value="command listener - send fil i reply&#10;spotify listener - musikklogg" />
     <MESSAGE value="ryddigere kode&#10;JAVADOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="ryddigere kode&#10;JAVADOC" />
+    <MESSAGE value="start på coinflip game" />
+    <option name="LAST_COMMIT_MESSAGE" value="start på coinflip game" />
   </component>
 </project>

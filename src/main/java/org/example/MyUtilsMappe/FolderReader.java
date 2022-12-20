@@ -13,8 +13,8 @@ import java.util.Scanner;
  * klasse med statiske metoder som leser filer
  */
 public class FolderReader {
-    private static final String imagesPath = ".\\src\\main\\resources\\images\\";
-    private static final String filePath = ".\\src\\main\\resources\\";
+    private static final String IMG_PATH = ".\\src\\main\\resources\\images\\";
+    private static final String COMMANDS_PATH = ".\\src\\main\\resources\\";
 
     /**
      * funksjon som henter bilder fra mappe
@@ -25,7 +25,7 @@ public class FolderReader {
 
         // prøver om fil fungerer
         try{
-            File folder = new File(imagesPath+mappe+"");
+            File folder = new File(IMG_PATH +mappe+"");
             File[] listOfFiles = folder.listFiles();
             return listOfFiles;
         } catch (NullPointerException e){
@@ -43,7 +43,7 @@ public class FolderReader {
 
         // prøver om fil fungerer
         try{
-            File file = new File(filePath+"slashcommands.txt");
+            File file = new File(COMMANDS_PATH +"slashcommands.txt");
             Scanner sc = new Scanner(file);
             sc.nextLine();
             while (sc.hasNextLine()){
@@ -67,7 +67,7 @@ public class FolderReader {
 
         // prøver om fil fungerer
         try {
-            File file = new File(filePath+"responsecommands.txt");
+            File file = new File(COMMANDS_PATH +"responsecommands.txt");
             Scanner sc = new Scanner(file);
             sc.nextLine();
 

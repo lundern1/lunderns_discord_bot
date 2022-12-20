@@ -1,4 +1,4 @@
-package org.example.Listeners;
+package org.example.ListenerMappe;
 
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
