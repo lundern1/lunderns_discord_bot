@@ -5,11 +5,8 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.utils.FileUpload;
-
 import org.example.MyUtilsMappe.MyUtils;
-
 import java.io.File;
-
 import static org.example.MyUtilsMappe.FolderReader.getCommandsFromFile;
 import static org.example.MyUtilsMappe.FolderReader.getImageFiles;
 
@@ -58,7 +55,8 @@ public class CommandListener extends ListenerAdapter {
      */
     @Override
     public void onGuildReady(GuildReadyEvent event) {
-        event.getGuild().updateCommands().addCommands(getCommandsFromFile()).queue();
+        //event.getGuild().updateCommands().addCommands(getCommandsFromFile()).queue();
+        System.out.println();
     }
 
     /**
@@ -67,6 +65,7 @@ public class CommandListener extends ListenerAdapter {
      */
     @Override
     public void onReady(ReadyEvent event) {
+        //event.getJDA().updateCommands().addCommands(getCommandsFromFile()).queue();
         System.out.println("command listener klar!");
     }
 }

@@ -27,7 +27,7 @@ public class Coinflip {
             boolean userWon = getCoinResult();
             int currentBalance = getBalance(userID);
 
-            if (betAmount < currentBalance) {
+            if (betAmount <= currentBalance) {
                 if (userWon) {
                     updateBalance(userID, currentBalance + betAmount);
                     return "du vant! ";

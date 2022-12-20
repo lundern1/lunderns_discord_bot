@@ -82,7 +82,7 @@ public class DatabaseHandler {
 
             try(PreparedStatement statement = connection.prepareStatement(getBalanceQuery)){
                 statement.setString(1, id);
-                ResultSet rs = statement.executeQuery(getBalanceQuery);
+                ResultSet rs = statement.executeQuery();
                 while (rs.next()){
                     balanceFromDB = rs.getInt("balance");
                 }
@@ -106,7 +106,7 @@ public class DatabaseHandler {
                 return false;
             try (PreparedStatement statement = con.prepareStatement(deleteUserQuery)){
                 statement.setString(1, id);
-                statement.executeUpdate(deleteUserQuery);
+                statement.executeUpdate();
                 return true;
             }
         } catch (SQLException e) {

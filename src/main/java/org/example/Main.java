@@ -3,12 +3,6 @@ package org.example;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import org.example.spillmappe.DatabaseHandler;
-import org.example.spillmappe.GameListener;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import static org.example.MyUtilsMappe.JDASettings.addEvents;
 import static org.example.MyUtilsMappe.JDASettings.createJDA;
