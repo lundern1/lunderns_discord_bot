@@ -1,11 +1,12 @@
 package org.example.spillmappe;
 
-import org.example.MyUtilsMappe.MyUtils;
+import org.example.database.DatabaseHandler;
+import org.example.myUtilsMappe.MyUtils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static org.example.spillmappe.DatabaseHandler.*;
+import static org.example.database.DatabaseHandler.*;
 
 public class Coinflip {
     private static final int chanceToWinPercent = 50;
@@ -20,7 +21,7 @@ public class Coinflip {
     public String coinflipGame() {
         if (betAmount < 1) return "ugyldig sum";
 
-        try (Connection connection = dataSource.getConnection()) {
+        try (Connection connection = DatabaseHandler.dataSource.getConnection()) {
             if (!finnes(connection, userID))
                 return "bruker finnes ikke";
 

@@ -1,4 +1,4 @@
-package org.example.ListenerMappe;
+package org.example.listenerMappe;
 
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;

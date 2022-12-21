@@ -1,4 +1,4 @@
-package org.example.ListenerMappe;
+package org.example.listenerMappe;
 
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;

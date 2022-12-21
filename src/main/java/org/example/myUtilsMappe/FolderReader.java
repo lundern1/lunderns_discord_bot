@@ -1,4 +1,4 @@
-package org.example.MyUtilsMappe;
+package org.example.myUtilsMappe;
 
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -50,6 +50,7 @@ public class FolderReader {
             while (sc.hasNextLine()){
                 String line = sc.nextLine();
                 String[] linjeList = line.split(";");
+                System.out.println("hei");
                 commandDataList.add(Commands.slash(linjeList[0], linjeList[1]));
             }
             sc.close();

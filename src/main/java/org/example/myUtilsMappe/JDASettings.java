@@ -1,15 +1,13 @@
-package org.example.MyUtilsMappe;
+package org.example.myUtilsMappe;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.ChunkingFilter;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import org.example.ListenerMappe.AramListener;
-import org.example.ListenerMappe.CommandListener;
-import org.example.ListenerMappe.MessageListener;
-import org.example.ListenerMappe.SpotifyListener;
-import org.example.spillmappe.GameListener;
+import org.example.listenerMappe.*;
 
 /**
  * en klasse med alle funksjoner som omhandler JDA
@@ -25,10 +23,9 @@ public class JDASettings {
                     .enableIntents(GatewayIntent.GUILD_PRESENCES) // lese brukers aktivitet
                     .enableIntents(GatewayIntent.GUILD_MEMBERS) // tilgang til medlemmer
                     .enableCache(CacheFlag.ACTIVITY) // tillater caching av bruker aktivitet
-
-                    // kode fungerer uten disse to - kan bli problemer på større servere
-                    //.setMemberCachePolicy(MemberCachePolicy.ALL)  // cacher alle brukere av botten
-                    //.setChunkingFilter(ChunkingFilter.ALL) // tvinger botten til å cache alle brukere på en gang(unngår lazing caching)
+                     // de to kommandoene under er tungt for botten unngå på stor server
+                    .setMemberCachePolicy(MemberCachePolicy.ALL)  // cacher alle brukere av botten
+                    .setChunkingFilter(ChunkingFilter.ALL) // tvinger botten til å cache alle brukere på en gang(unngår lazing caching)
                     .build();
         }
 
@@ -42,7 +39,8 @@ public class JDASettings {
                     new CommandListener(),
                     new MessageListener(),
                     new SpotifyListener(),
-                    new GameListener()
+                    new AccountListener(),
+                    new CoinflipListener()
             );
         }
 }

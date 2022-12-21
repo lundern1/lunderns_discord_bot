@@ -2,10 +2,10 @@ package org.example;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
-import org.example.spillmappe.DatabaseHandler;
+import org.example.database.DatabaseHandler;
 
-import static org.example.MyUtilsMappe.JDASettings.addEvents;
-import static org.example.MyUtilsMappe.JDASettings.createJDA;
+import static org.example.myUtilsMappe.JDASettings.addEvents;
+import static org.example.myUtilsMappe.JDASettings.createJDA;
 
 /******************************************
  * Discord bot som blant annet:           *

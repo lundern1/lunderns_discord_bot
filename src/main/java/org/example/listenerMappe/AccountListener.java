@@ -1,14 +1,18 @@
-package org.example.spillmappe;
+package org.example.listenerMappe;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.example.spillmappe.Coinflip;
+import org.example.database.DatabaseHandler;
+
+import static org.example.myUtilsMappe.MyUtils.getSumFromString;
 
 /**
  * klasse som lar brukeren spille spill
  * meldinger må starte med '!'
  */
-public class GameListener extends ListenerAdapter {
+public class AccountListener extends ListenerAdapter {
 
     /**
      *  gir beskjed om at listeneren har lastet globalt
@@ -46,35 +50,14 @@ public class GameListener extends ListenerAdapter {
                 else
                     event.getChannel().sendMessage("feilmelding").queue();
                 break;
+            case "!pray4lundern": case "!p4l":
+                if (DatabaseHandler.updateBalance(userID, DatabaseHandler.getBalance(userID)+10))
+                    event.getChannel().sendMessage("lundern har hørt din bønn, her er 10 flus").queue();
+                else
+                    event.getChannel().sendMessage("feilmelding");
         }
 
-        // sjekker om bruker vil conflippe
-        if (message.contains("!coinflip ")){
-            int betAmount = getSumFromString(message);
-            String tilbakemelding = "ugyldig sum";
-            if (betAmount != -1) {
-                Coinflip coinflip = new Coinflip(userID, betAmount);
-                tilbakemelding = coinflip.coinflipGame();
-            }
-            tilbakemelding += "\ndin sum: " + DatabaseHandler.getBalance(userID);
-            event.getChannel().sendMessage(tilbakemelding).queue();
-        }
     }
 
-    /**
-     * funksjon som sjekker om bruker har gitt
-     * gyldig beløp å gamble med
-     * @param message String melding fra bruker
-     * @return int returnerer beløp bruker vil spille for, -1 om ugyldig beløp
-     */
-    private int getSumFromString(String message) {
-        String[] liste = message.split(" ");
-        try{
-            return Integer.parseInt(liste[1]);
-        } catch (NumberFormatException e) {
-            return -1;
-        } catch (ArrayIndexOutOfBoundsException e){
-            return -1;
-        }
-    }
+
 }

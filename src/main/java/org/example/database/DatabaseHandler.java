@@ -1,7 +1,6 @@
-package org.example.spillmappe;
+package org.example.database;
 
 import com.zaxxer.hikari.HikariDataSource;
-import org.example.MyUtilsMappe.MyUtils;
 
 import java.sql.*;
 
@@ -13,7 +12,7 @@ public class DatabaseHandler {
     private static final String JDBC_URL  = "jdbc:mysql://localhost/discordbot";
     private static final String JDBC_USERNAME = "root";
     private static final String JDBC_PASSWORD= "";
-    static HikariDataSource dataSource;
+    public static HikariDataSource dataSource;
 
     /**
      * konstruktør for connection-pool
@@ -54,7 +53,7 @@ public class DatabaseHandler {
      * @param id String userID
      * @return returner true om finnes, false om ikke
      */
-    static boolean finnes(Connection con, String id) {
+    public static boolean finnes(Connection con, String id) {
         String userExistsQuery = "SELECT * FROM " + TABLE_NAME + " WHERE id = ?;";
         try(PreparedStatement statement = con.prepareStatement(userExistsQuery)) {
             statement.setString(1, id);
@@ -127,7 +126,7 @@ public class DatabaseHandler {
      * @param newBalance int nytt beløp på konto til bruker
      * @return true om beløp ble oppdatert, false om bruker ikke finnes
      */
-    static boolean updateBalance(String id, int newBalance){
+    public static boolean updateBalance(String id, int newBalance){
         String updateBalanceQuery = "UPDATE " + TABLE_NAME + " " + "SET balance = ? WHERE id = ?";
         try(Connection connection = dataSource.getConnection()) {
             if (!finnes(connection, id))

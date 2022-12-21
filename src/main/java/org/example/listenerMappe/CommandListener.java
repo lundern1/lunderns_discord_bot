@@ -1,14 +1,14 @@
-package org.example.ListenerMappe;
+package org.example.listenerMappe;
 
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.utils.FileUpload;
-import org.example.MyUtilsMappe.MyUtils;
+import org.example.myUtilsMappe.MyUtils;
 import java.io.File;
-import static org.example.MyUtilsMappe.FolderReader.getCommandsFromFile;
-import static org.example.MyUtilsMappe.FolderReader.getImageFiles;
+import static org.example.myUtilsMappe.FolderReader.getCommandsFromFile;
+import static org.example.myUtilsMappe.FolderReader.getImageFiles;
 
 /**
  * klasse som lytter på /slash commands
@@ -55,7 +55,7 @@ public class CommandListener extends ListenerAdapter {
      */
     @Override
     public void onGuildReady(GuildReadyEvent event) {
-        //event.getGuild().updateCommands().addCommands(getCommandsFromFile()).queue();
+        event.getGuild().updateCommands().addCommands(getCommandsFromFile()).queue();
         System.out.println();
     }
 

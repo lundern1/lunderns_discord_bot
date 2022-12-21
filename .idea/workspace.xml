@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96af9770-96a3-4adc-b31a-4c1efc99d76a" name="Changes" comment="forbedret coinflip game, ryddigere database, JAVADOC">
+    <list default="true" id="96af9770-96a3-4adc-b31a-4c1efc99d76a" name="Changes" comment="rollback fra webscrapet bilder til lokale bilder">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/CoinflipListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/CommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/AramListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/AramListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/CommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ListenerMappe/SpotifyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/SpotifyListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/FolderReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/FolderReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/FolderReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myUtilsMappe/FolderReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/JDASettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myUtilsMappe/JDASettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MyUtilsMappe/MyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/myUtilsMappe/MyUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/Coinflip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/Coinflip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/DatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/slashcommands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/slashcommands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/GameListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/AccountListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Ellingsen/emma2.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +76,7 @@
       <module name="discordBot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.MyUtilsMappe.*" />
+          <option name="PATTERN" value="org.example.myUtilsMappe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,7 +135,13 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1671559289251</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="rollback fra webscrapet bilder til lokale bilder">
+      <created>1671571777966</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1671571777966</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,6 +162,7 @@
     <MESSAGE value="ryddigere kode&#10;JAVADOC" />
     <MESSAGE value="start på coinflip game" />
     <MESSAGE value="forbedret coinflip game, ryddigere database, JAVADOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="forbedret coinflip game, ryddigere database, JAVADOC" />
+    <MESSAGE value="rollback fra webscrapet bilder til lokale bilder" />
+    <option name="LAST_COMMIT_MESSAGE" value="rollback fra webscrapet bilder til lokale bilder" />
   </component>
 </project>
