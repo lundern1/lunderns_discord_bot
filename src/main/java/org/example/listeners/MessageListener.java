@@ -1,4 +1,4 @@
-package org.example.listenerMappe;
+package org.example.listeners;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
@@ -7,8 +7,8 @@ import org.example.Main;
 
 import java.util.HashMap;
 
-import static org.example.myUtilsMappe.FolderReader.getResponsesFromFile;
-import static org.example.myUtilsMappe.MyUtils.getRandomNumber;
+import static org.example.utils.FolderReader.getResponsesFromFile;
+import static org.example.utils.MyUtils.getRandomNumber;
 
 /**
  * klasse som lytter etter key-words i meldinger

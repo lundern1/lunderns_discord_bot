@@ -1,4 +1,4 @@
-package org.example.myUtilsMappe;
+package org.example.utils;
 
 import java.util.Random;
 
@@ -28,8 +28,9 @@ public class MyUtils {
      * @return int returnerer beløp bruker vil spille for, -1 om ugyldig beløp
      */
     public static int getSumFromString(String message) {
-        String[] liste = message.split(" ");
+
         try{
+            String[] liste = message.split(" ");
             return Integer.parseInt(liste[1]);
         } catch (NumberFormatException e) {
             return -1;

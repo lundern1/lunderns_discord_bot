@@ -1,4 +1,4 @@
-package org.example.myUtilsMappe;
+package org.example.utils;
 
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -30,33 +30,33 @@ public class FolderReader {
             File[] listOfFiles = folder.listFiles();
             return listOfFiles;
         } catch (NullPointerException e){
-            throw new NullPointerException();
+            System.out.println("kunne ikke finne fil: " + e.getMessage());
         }
-
+        return null;
     }
 
     /**
      * skanner en fil for commands
      * @return returnerer en ArrayList av CommandData
      */
-    public static ArrayList<CommandData> getCommandsFromFile(){
+    public static ArrayList<CommandData> getCommandsFromFile() {
         ArrayList<CommandData> commandDataList = new ArrayList<>();
 
-        // prøver om fil fungerer
-        try{
-            File file = new File(COMMANDS_PATH +"slashcommands.txt");
-            Scanner sc = new Scanner(file);
-            sc.nextLine();
-            while (sc.hasNextLine()){
+        String fileString = COMMANDS_PATH + "slashcommands.txt";
+        // åpner og lukker scanner
+        try (Scanner sc = new Scanner(new File(fileString))) {
+            sc.nextLine();  // hopp over første linje
+
+            // leser fil linje for linje
+            while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] linjeList = line.split(";");
-                System.out.println("hei");
                 commandDataList.add(Commands.slash(linjeList[0], linjeList[1]));
             }
-            sc.close();
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("kunne ikke finne fil: " + e.getMessage());
         }
+
         return commandDataList;
     }
 
@@ -64,27 +64,27 @@ public class FolderReader {
      * henter ulike responsmeldinger fra fil
      * @return returnerer et hashmap med alle mulige responser
      */
-    public static HashMap<String, String[]> getResponsesFromFile(){
+    public static HashMap<String, String[]> getResponsesFromFile() {
         HashMap<String, String[]> responseMap = new HashMap<>();
 
-        // prøver om fil fungerer
-        try {
-            File file = new File(COMMANDS_PATH +"responsecommands.txt");
-            Scanner sc = new Scanner(file);
-            sc.nextLine();
+        String fileString = COMMANDS_PATH + "responsecommands.txt";
 
-            while (sc.hasNextLine()){
+        // åpner og lukker scanner
+        try (Scanner sc = new Scanner(new File(fileString))) {
+            sc.nextLine();  // skip the first line
+
+            // leser fil linje for linje
+            while (sc.hasNextLine()) {
                 String line = sc.nextLine();
-
                 String[] kvSplit = line.split(";");
                 String[] listeSplit = kvSplit[1].split(",");
-
                 responseMap.put(kvSplit[0], listeSplit);
             }
-            sc.close();
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("kunne ikke finne fil: " + e.getMessage());
         }
+
         return responseMap;
     }
+
 }

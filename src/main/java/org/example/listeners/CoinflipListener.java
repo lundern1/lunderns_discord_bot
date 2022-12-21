@@ -1,11 +1,11 @@
-package org.example.listenerMappe;
+package org.example.listeners;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.database.DatabaseHandler;
-import org.example.spillmappe.Coinflip;
+import org.example.games.Coinflip;
 
-import static org.example.myUtilsMappe.MyUtils.getSumFromString;
+import static org.example.utils.MyUtils.getSumFromString;
 
 /**
  * klasse som lytter etter om bruker vil conflippe
@@ -27,7 +27,12 @@ public class CoinflipListener extends ListenerAdapter {
             String tilbakemelding = "ugyldig sum";
             if (betAmount != -1) {
                 Coinflip coinflip = new Coinflip(userID, betAmount);
-                tilbakemelding = coinflip.coinflipGame();
+                try{
+                    tilbakemelding = coinflip.coinflipGame();
+                } catch (Exception e) {
+                    tilbakemelding = "en feil har skjedd: " + e.getMessage();
+                }
+
             }
             tilbakemelding += "\ndin sum: " + DatabaseHandler.getBalance(userID);
             event.getChannel().sendMessage(tilbakemelding).queue();

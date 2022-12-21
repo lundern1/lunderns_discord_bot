@@ -1,4 +1,4 @@
-package org.example.myUtilsMappe;
+package org.example.utils;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import org.example.listenerMappe.*;
+import org.example.listeners.*;
 
 /**
  * en klasse med alle funksjoner som omhandler JDA

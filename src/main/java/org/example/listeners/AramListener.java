@@ -1,4 +1,4 @@
-package org.example.listenerMappe;
+package org.example.listeners;
 
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
@@ -51,28 +51,34 @@ public class AramListener extends ListenerAdapter {
         // er spillet LOL?
         if (rp.getName().equals("League of Legends")){
 
-            // sjekker om man prøver seg på aram
+            // sjekker bruker spiller aram eller custom aram game
             if(rp.getDetails().equals(("Howling Abyss (ARAM)")) || rp.getDetails().equals(("Howling Abyss (Custom)"))){
-
 
                 // sjekker om man går ingame - lov å være i champ select, lobby og queue
                 if (rp.getState().equals("In Game")){
-                    TextChannel channel;
 
                     // sjekk om config feltet er gyldig å hente fra
                     try {
+                        // få melding fra config og få text channel fra guild
                         String msgChannelID = Main.config.get("GUILDRMSGCHANNELID");
-                        channel = guild.getTextChannelById(msgChannelID);
+                        TextChannel channel = guild.getTextChannelById(msgChannelID);
+
+                        // send melding i kanal
                         String id = user.getId();
                         channel.sendMessage("<@"+id+"> ble bannet! grunn: spiller aram :skull:").queue();
                     }
-                    catch (Exception e){
-                        throw new RuntimeException(e);
+                    catch (NullPointerException e) {
+                        System.out.println("Config felt ikke funnet : " + e.getMessage());
                     }
-
+                    catch (IllegalArgumentException e) {
+                        System.out.println("invalid text channel ID: " + e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("en feil har skjedd: " + e.getMessage());
+                    }
                     // **** kode som banner en bruker fra serveren *****
                     //Member member = event.getMember();
                     //guild.ban(member,7, TimeUnit.DAYS).queue(); OBS! banner en bruker fra serveren
+
                 }
             }
         }

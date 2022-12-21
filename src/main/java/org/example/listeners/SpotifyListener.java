@@ -1,4 +1,4 @@
-package org.example.listenerMappe;
+package org.example.listeners;
 
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
@@ -58,8 +58,12 @@ public class SpotifyListener extends ListenerAdapter {
             TextChannel channel = guild.getTextChannelById(generalID);
             channel.sendMessage(newSongAsString).queue();
         }
-        catch (Exception e){
-            throw new RuntimeException();
+        catch (NullPointerException e) {
+            System.out.println("kunne ikke finne text channel: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("ugyldig text channel ID: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("en feil har skjedd: " + e.getMessage());
         }
     }
 }

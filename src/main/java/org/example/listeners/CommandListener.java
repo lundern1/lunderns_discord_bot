@@ -1,14 +1,14 @@
-package org.example.listenerMappe;
+package org.example.listeners;
 
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.utils.FileUpload;
-import org.example.myUtilsMappe.MyUtils;
+import org.example.utils.MyUtils;
 import java.io.File;
-import static org.example.myUtilsMappe.FolderReader.getCommandsFromFile;
-import static org.example.myUtilsMappe.FolderReader.getImageFiles;
+import static org.example.utils.FolderReader.getCommandsFromFile;
+import static org.example.utils.FolderReader.getImageFiles;
 
 /**
  * klasse som lytter på /slash commands
