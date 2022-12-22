@@ -31,6 +31,8 @@ public class MyUtils {
 
         try{
             String[] liste = message.split(" ");
+            if (liste[1].equals("all"))
+                return -2;
             return Integer.parseInt(liste[1]);
         } catch (NumberFormatException e) {
             return -1;

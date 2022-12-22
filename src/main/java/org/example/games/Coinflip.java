@@ -25,7 +25,7 @@ public class Coinflip {
     /**
      * hånterer et spill med coinflip
      * @return returnerer tilbakemelding på om du vant,
-     * det er ugyldig sum eller om brukeren ikke finnes
+     * det er ugyldig sum eller om brukeren ikke existsInTable
      */
     public String coinflipGame() {
         // sjekker om summen er gyldig
@@ -35,8 +35,8 @@ public class Coinflip {
         try (Connection connection = DatabaseHandler.dataSource.getConnection()) {
 
             // sjekker om bruker eksisterer
-            if (!finnes(connection, userID))
-                return "bruker finnes ikke";
+            if (!existsInTable(connection, userID, TABLE_USER))
+                DatabaseHandler.skrivBrukerTilUser(userID, 500);
 
 
             // henter bruker sin balance

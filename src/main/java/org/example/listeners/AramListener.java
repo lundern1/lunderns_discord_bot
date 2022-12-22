@@ -7,6 +7,8 @@ import net.dv8tion.jda.api.events.user.UserActivityStartEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * klasse som lytter på bruker aktivitet
  * i hovedsak etter spilling av league of legends
@@ -76,8 +78,8 @@ public class AramListener extends ListenerAdapter {
                         System.out.println("en feil har skjedd: " + e.getMessage());
                     }
                     // **** kode som banner en bruker fra serveren *****
-                    //Member member = event.getMember();
-                    //guild.ban(member,7, TimeUnit.DAYS).queue(); OBS! banner en bruker fra serveren
+                    // Member member = event.getMember();
+                    // guild.ban(member,7, TimeUnit.DAYS).queue();
 
                 }
             }

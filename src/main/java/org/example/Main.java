@@ -17,12 +17,18 @@ import static org.example.utils.JDASettings.createJDA;
  * @lundern1 - github                     *
  ******************************************/
 public class Main {
-    public static final Dotenv config = Dotenv.configure().ignoreIfMissing().load();;
+    public static final Dotenv config = Dotenv.configure().ignoreIfMissing().load();
     public static void main(String[] args) {
+        // henter discord-bot-token fra .env fil
         String token = config.get("TOKEN");
+
+        // starter opp database connection pool
         DatabaseHandler.initConnection();
 
+        // starter JDA
         JDA jda = createJDA(token);
+
+        // legger til eventListeners i JDA
         addEvents(jda);
 
     }

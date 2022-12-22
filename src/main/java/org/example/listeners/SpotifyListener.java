@@ -10,12 +10,14 @@ import net.dv8tion.jda.api.events.user.UserActivityStartEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
 
+import java.util.HashMap;
+
 /**
  * klasse som lytter til aktiviteten til en bruker som hører på
  * musikk via Spotify
  */
 public class SpotifyListener extends ListenerAdapter {
-    private String lastSongPlayed = "";
+    private HashMap<String, String> lastSongPlayed = new HashMap<>();
 
     /**
      * gir beskjed om at listeneren har lastet globalt
@@ -36,8 +38,15 @@ public class SpotifyListener extends ListenerAdapter {
         RichPresence rp = activity.asRichPresence();
 
         // hvis man hører på spotify og forrige sang man hørte på ikke var lik som denne
-        if (rp.getName().equals("Spotify") && !lastSongPlayed.equals(rp.getDetails()))
+        if (lastSongPlayed.get(event.getUser().getId()) == null)
             sendSpotifySong(event, rp);
+        try {
+            String id = event.getUser().getId();
+            if (rp.getName().equals("Spotify") && !lastSongPlayed.get(id).equals(rp.getDetails()))
+                sendSpotifySong(event, rp);
+        }catch (NullPointerException e){
+            System.out.println("noe er null: " + e.getMessage());
+        }
     }
 
     /**
@@ -49,7 +58,7 @@ public class SpotifyListener extends ListenerAdapter {
         Guild guild = event.getGuild();
         User user = event.getUser();
 
-        lastSongPlayed = rp.getDetails();
+        lastSongPlayed.put(user.getId(), rp.getDetails());
         String newSongAsString = user.getAsTag()+" hører på: " + rp.getState().split(";")[0] + " - " + rp.getDetails();
 
         // prøv å se om kanal id til spotify fungerte.

@@ -40,7 +40,8 @@ public class JDASettings {
                     new MessageListener(),
                     new SpotifyListener(),
                     new AccountListener(),
-                    new CoinflipListener()
+                    new CoinflipListener(),
+                    new LevelListener()
             );
         }
 }

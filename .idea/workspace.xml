@@ -4,20 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96af9770-96a3-4adc-b31a-4c1efc99d76a" name="Changes" comment="litt rydding i messagelistener kode">
+    <list default="true" id="96af9770-96a3-4adc-b31a-4c1efc99d76a" name="Changes" comment="aramlistener, coinflip, database utfyldende kommentering">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/games/KapteinSkatt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/LevelListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/DatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/AccountListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/AccountListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/AramListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/AramListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/CoinflipListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/CoinflipListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/CommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/MessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listenerMappe/SpotifyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/SpotifyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myUtilsMappe/FolderReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/FolderReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myUtilsMappe/JDASettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JDASettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/myUtilsMappe/MyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/MyUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/spillmappe/Coinflip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/games/Coinflip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/games/Coinflip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/games/Coinflip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/AccountListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/AccountListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/AramListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/AramListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/CoinflipListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/CoinflipListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/SpotifyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/SpotifyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/JDASettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JDASettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/MyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/MyUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,22 +44,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "OverrideImplement.combined": "false",
-    "OverrideImplement.overriding.sorted": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.36091954"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;OverrideImplement.combined&quot;: &quot;false&quot;,
+    &quot;OverrideImplement.overriding.sorted&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.36091954&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\chris\IdeaProjects\egneProsjekter\discordBot\src\main\resources\temp" />
@@ -151,7 +152,13 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1671583949864</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="aramlistener, coinflip, database utfyldende kommentering">
+      <created>1671587990597</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1671587990597</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,6 +181,7 @@
     <MESSAGE value="forbedret coinflip game, ryddigere database, JAVADOC" />
     <MESSAGE value="rollback fra webscrapet bilder til lokale bilder" />
     <MESSAGE value="litt rydding i messagelistener kode" />
-    <option name="LAST_COMMIT_MESSAGE" value="litt rydding i messagelistener kode" />
+    <MESSAGE value="aramlistener, coinflip, database utfyldende kommentering" />
+    <option name="LAST_COMMIT_MESSAGE" value="aramlistener, coinflip, database utfyldende kommentering" />
   </component>
 </project>

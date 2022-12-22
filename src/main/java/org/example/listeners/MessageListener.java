@@ -7,6 +7,8 @@ import org.example.Main;
 
 import java.util.HashMap;
 
+import static org.example.games.KapteinSkatt.claimSkatt;
+import static org.example.games.KapteinSkatt.muligSkatt;
 import static org.example.utils.FolderReader.getResponsesFromFile;
 import static org.example.utils.MyUtils.getRandomNumber;
 
@@ -30,14 +32,20 @@ public class MessageListener extends ListenerAdapter {
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        String message = event.getMessage().getContentDisplay();
+        String userID = event.getAuthor().getId();
+        if (!userID.equals(Main.config.get("BOT_ID")))
+            muligSkatt(event);
 
+        String message = event.getMessage().getContentDisplay();
         switch (message){
             case ("test"):
                 testFunksjon(event);
                  break;
             case ("takk gud"):
                 event.getChannel().sendMessage("takk meg").queue();
+                break;
+            case "!hentSkatt":
+                claimSkatt(userID, event);
                 break;
         }
     }
