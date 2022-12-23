@@ -1,0 +1,8 @@
+command;beskrivelse av command
+!balance;viser totalsum på konto
+!pray4lundern, !p4l;gir en liten sum penger
+!coinflip xx, !coinflip all;coinflipper en valgt sum, eller alt på konto
+!rank;viser din rank
+!xp;viser din total xp
+!messages;viser dine antall meldinger sendt
+!hentSkatt;henter en skatt om tilgjengelig

@@ -28,7 +28,6 @@ public class MyUtils {
      * @return int returnerer beløp bruker vil spille for, -1 om ugyldig beløp
      */
     public static int getSumFromString(String message) {
-
         try{
             String[] liste = message.split(" ");
             if (liste[1].equals("all"))

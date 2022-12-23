@@ -2,10 +2,9 @@ package org.example.listeners;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.example.database.DatabaseHandler;
+import org.example.database.ConnectionHandler;
+import org.example.database.UserHandler;
 import org.example.games.Coinflip;
-
-import java.util.stream.Stream;
 
 import static org.example.utils.MyUtils.getSumFromString;
 
@@ -29,13 +28,13 @@ public class CoinflipListener extends ListenerAdapter {
             String tilbakemelding = "ugyldig sum";
 
             if (betAmount == -2){
-                int totalSum = DatabaseHandler.getBalance(userID);
+                int totalSum = UserHandler.getBalance(userID);
                 tilbakemelding = execFlip(userID, totalSum);
             }
             else if (betAmount != -1) {
                 tilbakemelding = execFlip(userID, betAmount);
             }
-            tilbakemelding += "\ndin sum: " + DatabaseHandler.getBalance(userID);
+            tilbakemelding += "\ndin sum: " + UserHandler.getBalance(userID);
             event.getChannel().sendMessage(tilbakemelding).queue();
         }
 

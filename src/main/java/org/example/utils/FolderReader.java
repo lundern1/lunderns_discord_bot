@@ -14,8 +14,8 @@ import java.util.Scanner;
  * klasse med statiske metoder som leser filer
  */
 public class FolderReader {
-    private static final String IMG_PATH = ".\\src\\main\\resources\\images\\";
-    private static final String COMMANDS_PATH = ".\\src\\main\\resources\\";
+    private static final String IMG_PATH = "./src/main/resources/images/";
+    private static final String COMMANDS_PATH = "./src/main/resources/textfiles/";
 
     /**
      * funksjon som henter bilder fra mappe
@@ -71,14 +71,14 @@ public class FolderReader {
 
         // åpner og lukker scanner
         try (Scanner sc = new Scanner(new File(fileString))) {
-            sc.nextLine();  // skip the first line
+            sc.nextLine();  // hopper over første linje
 
             // leser fil linje for linje
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
-                String[] kvSplit = line.split(";");
-                String[] listeSplit = kvSplit[1].split(",");
-                responseMap.put(kvSplit[0], listeSplit);
+                String[] rowSplit = line.split(";");
+                String[] listOfResonsesSplit = rowSplit[1].split(",");
+                responseMap.put(rowSplit[0], listOfResonsesSplit);
             }
         } catch (FileNotFoundException e) {
             System.out.println("kunne ikke finne fil: " + e.getMessage());
@@ -87,4 +87,23 @@ public class FolderReader {
         return responseMap;
     }
 
+    public static ArrayList<String[]> getContentFromFile(String filename){
+       ArrayList<String[]> listOfMessageCommands = new ArrayList<>();
+
+       String fileString = COMMANDS_PATH + filename;
+
+       try(Scanner sc = new Scanner(new File(fileString))) {
+           sc.nextLine(); // hopper over en linje
+
+           while (sc.hasNextLine()){
+               String line = sc.nextLine();
+               String[] lineSplit = line.split(";");
+               listOfMessageCommands.add(lineSplit);
+           }
+       } catch (FileNotFoundException e) {
+           System.out.println("kunne ikke finne fil: " + e.getMessage());
+       }
+
+        return listOfMessageCommands;
+    }
 }

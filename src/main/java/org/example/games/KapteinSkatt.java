@@ -1,7 +1,8 @@
 package org.example.games;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import org.example.database.DatabaseHandler;
+import org.example.database.ConnectionHandler;
+import org.example.database.UserHandler;
 import org.example.utils.MyUtils;
 
 /**
@@ -42,7 +43,7 @@ public class KapteinSkatt {
         }
         // prøver å oppdatere balance til bruker med balance+SKATT
         try {
-            boolean sukess = DatabaseHandler.updateBalance(userID, DatabaseHandler.getBalance(userID)+SKATT);
+            boolean sukess = UserHandler.updateBalance(userID, UserHandler.getBalance(userID)+SKATT);
 
             // hvis suksess oppdater skatt og send melding
             if (sukess){

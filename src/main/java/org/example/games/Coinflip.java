@@ -1,12 +1,14 @@
 package org.example.games;
 
-import org.example.database.DatabaseHandler;
+import org.example.database.ConnectionHandler;
+import org.example.database.UserHandler;
 import org.example.utils.MyUtils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static org.example.database.DatabaseHandler.*;
+import static org.example.database.ConnectionHandler.*;
+import static org.example.database.UserHandler.*;
 
 /**
  * klasse som representerer et spill med coinflip
@@ -32,11 +34,11 @@ public class Coinflip {
         if (betAmount < 1) return "ugyldig sum";
 
         // prøver å få connection med database
-        try (Connection connection = DatabaseHandler.dataSource.getConnection()) {
+        try (Connection connection = ConnectionHandler.dataSource.getConnection()) {
 
             // sjekker om bruker eksisterer
             if (!existsInTable(connection, userID, TABLE_USER))
-                DatabaseHandler.skrivBrukerTilUser(userID, 500);
+                UserHandler.skrivBrukerTilUser(userID, 500);
 
 
             // henter bruker sin balance

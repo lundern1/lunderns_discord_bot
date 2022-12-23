@@ -2,7 +2,7 @@ package org.example;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
-import org.example.database.DatabaseHandler;
+import org.example.database.ConnectionHandler;
 
 import static org.example.utils.JDASettings.addEvents;
 import static org.example.utils.JDASettings.createJDA;
@@ -23,7 +23,7 @@ public class Main {
         String token = config.get("TOKEN");
 
         // starter opp database connection pool
-        DatabaseHandler.initConnection();
+        ConnectionHandler.initConnection();
 
         // starter JDA
         JDA jda = createJDA(token);

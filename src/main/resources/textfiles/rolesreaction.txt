@@ -1,0 +1,4 @@
+navn;beskrivelse
+🍣 Weeb;liker du anime
+🐴 Hestejente;liker du hest
+💎 Minecraft;liker du minecraft

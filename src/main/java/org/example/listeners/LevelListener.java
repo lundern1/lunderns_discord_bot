@@ -4,7 +4,8 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
-import org.example.database.DatabaseHandler;
+import org.example.database.ConnectionHandler;
+import org.example.database.LevelHandler;
 
 public class LevelListener extends ListenerAdapter {
     private static final int XP = 10;
@@ -45,15 +46,15 @@ public class LevelListener extends ListenerAdapter {
      * @param userID bruker som trigget melding
      */
     private void lookForLevelUp(MessageReceivedEvent event, String userID) {
-        int currentXp = DatabaseHandler.getRowFromLevel(userID, "xp");
+        int currentXp = LevelHandler.getRowFromLevel(userID, "xp");
 
         // er xp over 250 så gå opp 1 i level
         if (currentXp >= 250){
 
             // oppdateringer i DB
-            int newRank = DatabaseHandler.getRowFromLevel(userID, "rank")+1;
-            DatabaseHandler.updateRow(userID, newRank, "rank");
-            DatabaseHandler.updateRow(userID, 0, "xp");
+            int newRank = LevelHandler.getRowFromLevel(userID, "rank")+1;
+            LevelHandler.updateRow(userID, newRank, "rank");
+            LevelHandler.updateRow(userID, 0, "xp");
             String id = event.getAuthor().getAsMention();
 
             // send melding i kanal om nytt level
@@ -66,8 +67,8 @@ public class LevelListener extends ListenerAdapter {
      * @param userID bruker som skal oppdateres
      */
     private void updateXp(String userID) {
-        int newXp = DatabaseHandler.getRowFromLevel(userID, "xp") + XP;
-        DatabaseHandler.updateRow(userID, newXp, "xp");
+        int newXp = LevelHandler.getRowFromLevel(userID, "xp") + XP;
+        LevelHandler.updateRow(userID, newXp, "xp");
     }
 
     /**
@@ -79,7 +80,7 @@ public class LevelListener extends ListenerAdapter {
 
         // prøver å oppdatere bruker sine meldinger i db
         try{
-            boolean suksess = DatabaseHandler.updateRow(userID, DatabaseHandler.getRowFromLevel(userID, "messages")+1, "messages");
+            boolean suksess = LevelHandler.updateRow(userID, LevelHandler.getRowFromLevel(userID, "messages")+1, "messages");
 
             // feilmelding om ikke oppdatert
             if (!suksess)
@@ -98,7 +99,7 @@ public class LevelListener extends ListenerAdapter {
     private void getRow(String userID, MessageReceivedEvent event, String row) {
         // prøver å hente rad til bruker fra database
         try {
-            int valueFromRow = DatabaseHandler.getRowFromLevel(userID, row);
+            int valueFromRow = LevelHandler.getRowFromLevel(userID, row);
 
             // hvis verdi ikke hentet send feilmelding
             if (valueFromRow == -1)

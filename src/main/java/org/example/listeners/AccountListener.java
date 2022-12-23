@@ -3,9 +3,8 @@ package org.example.listeners;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.example.Main;
-import org.example.database.DatabaseHandler;
-import org.example.utils.MyUtils;
+import org.example.database.ConnectionHandler;
+import org.example.database.UserHandler;
 
 
 /**
@@ -55,7 +54,7 @@ public class AccountListener extends ListenerAdapter {
     private void execBalanceCommand(String userID, MessageReceivedEvent event) {
         // prøver å hente balance til bruker fra database
         try {
-            int balance = DatabaseHandler.getBalance(userID);
+            int balance = UserHandler.getBalance(userID);
             event.getChannel().sendMessage(balance + "").queue();
         } catch (Exception e) {
             event.getChannel().sendMessage("en feil has skjedd: " + e.getMessage()).queue();
@@ -64,7 +63,7 @@ public class AccountListener extends ListenerAdapter {
     private void execPrayCommand(String userID, MessageReceivedEvent event, int addToBalance){
         // prøver å øke balance til bruker med x antall sum
         try {
-            boolean suksess = DatabaseHandler.updateBalance(userID, DatabaseHandler.getBalance(userID)+addToBalance);
+            boolean suksess = UserHandler.updateBalance(userID, UserHandler.getBalance(userID)+addToBalance);
             // gir tilbakemelding på om balance ble økt eller ikke
             if (suksess)
                 event.getChannel().sendMessage("lundern har hørt din bønn, her er "+addToBalance+" flus").queue();

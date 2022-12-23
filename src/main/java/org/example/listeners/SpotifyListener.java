@@ -38,8 +38,16 @@ public class SpotifyListener extends ListenerAdapter {
         RichPresence rp = activity.asRichPresence();
 
         // hvis man hører på spotify og forrige sang man hørte på ikke var lik som denne
-        if (lastSongPlayed.get(event.getUser().getId()) == null)
-            sendSpotifySong(event, rp);
+        try {
+            if (lastSongPlayed.get(event.getUser().getId()) == null && rp.getName().equals("Spotify")){
+                sendSpotifySong(event, rp);
+                return;
+            }
+        } catch (NullPointerException e) {
+            System.out.println("noe er null: " + e.getMessage());
+        }
+
+
         try {
             String id = event.getUser().getId();
             if (rp.getName().equals("Spotify") && !lastSongPlayed.get(id).equals(rp.getDetails()))

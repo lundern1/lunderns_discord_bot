@@ -41,7 +41,9 @@ public class JDASettings {
                     new SpotifyListener(),
                     new AccountListener(),
                     new CoinflipListener(),
-                    new LevelListener()
+                    new LevelListener(),
+                    new OwnerListener(),
+                    new RoleListener()
             );
         }
 }

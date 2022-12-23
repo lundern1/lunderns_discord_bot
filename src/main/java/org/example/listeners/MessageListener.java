@@ -1,10 +1,16 @@
 package org.example.listeners;
 
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
+import org.example.embeds.EmbedHelpMessage;
+import org.example.embeds.EmbedRoleMessage;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import static org.example.games.KapteinSkatt.claimSkatt;
@@ -40,12 +46,16 @@ public class MessageListener extends ListenerAdapter {
         switch (message){
             case ("test"):
                 testFunksjon(event);
-                 break;
+                break;
             case ("takk gud"):
                 event.getChannel().sendMessage("takk meg").queue();
                 break;
             case "!hentSkatt":
                 claimSkatt(userID, event);
+                break;
+            case "!help":
+                EmbedHelpMessage embedHelpMessage = new EmbedHelpMessage();
+                event.getChannel().sendMessageEmbeds(embedHelpMessage.build()).queue();
                 break;
         }
     }
