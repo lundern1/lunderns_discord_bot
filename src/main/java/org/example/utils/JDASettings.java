@@ -7,7 +7,11 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import org.example.listeners.*;
+import org.example.listeners.activitylisteners.AramListener;
+import org.example.listeners.activitylisteners.SpotifyListener;
+import org.example.listeners.messagelisteners.*;
+import org.example.listeners.reactionlisteners.RoleListener;
+import org.example.listeners.slashlisteners.CommandListener;
 
 /**
  * en klasse med alle funksjoner som omhandler JDA

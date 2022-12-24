@@ -4,31 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96af9770-96a3-4adc-b31a-4c1efc99d76a" name="Changes" comment="aramlistener, coinflip, database utfyldende kommentering">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/database/LevelHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/database/UserHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/embeds/EmbedHelpMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/embeds/EmbedRoleMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/OwnerListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/RoleListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textfiles/messagecommands.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textfiles/rolesreaction.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+    <list default="true" id="96af9770-96a3-4adc-b31a-4c1efc99d76a" name="Changes" comment="JAVADOC og kommentering, filstruktur">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/embeds/EmbedMessagesMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/ConnectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/games/Coinflip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/games/Coinflip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/LevelHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/embeds/EmbedHelpMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/embeds/EmbedHelpMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/embeds/EmbedRoleMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/embeds/EmbedRoleMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/games/KapteinSkatt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/games/KapteinSkatt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/AccountListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/AccountListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/CoinflipListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/CoinflipListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/LevelListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/LevelListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/MessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/SpotifyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/SpotifyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/FolderReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/FolderReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/AccountListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/messagelisteners/AccountListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/AramListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/activitylisteners/AramListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/CoinflipListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/messagelisteners/CoinflipListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/slashlisteners/CommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/LevelListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/messagelisteners/LevelListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/messagelisteners/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/OwnerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/messagelisteners/OwnerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/RoleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/reactionlisteners/RoleListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/listeners/SpotifyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/listeners/activitylisteners/SpotifyListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/JDASettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JDASettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/MyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/MyUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/responsecommands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/textfiles/responsecommands.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/slashcommands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/textfiles/slashcommands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/textfiles/messagecommands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/textfiles/messagecommands.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +88,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.org.example.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +161,13 @@
       <option name="presentableId" value="LOCAL−00010" />
       <updated>1671587990597</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL−00011" summary="reactions, diverse meldinger, ryddigere kode">
+      <created>1671756888529</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1671756888529</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,6 +191,8 @@
     <MESSAGE value="rollback fra webscrapet bilder til lokale bilder" />
     <MESSAGE value="litt rydding i messagelistener kode" />
     <MESSAGE value="aramlistener, coinflip, database utfyldende kommentering" />
-    <option name="LAST_COMMIT_MESSAGE" value="aramlistener, coinflip, database utfyldende kommentering" />
+    <MESSAGE value="reactions, diverse meldinger, ryddigere kode" />
+    <MESSAGE value="JAVADOC og kommentering, filstruktur" />
+    <option name="LAST_COMMIT_MESSAGE" value="JAVADOC og kommentering, filstruktur" />
   </component>
 </project>

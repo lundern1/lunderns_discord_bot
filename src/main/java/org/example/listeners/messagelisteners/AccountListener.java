@@ -1,4 +1,4 @@
-package org.example.listeners;
+package org.example.listeners.messagelisteners;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
@@ -33,7 +33,6 @@ public class AccountListener extends ListenerAdapter {
         String message = event.getMessage().getContentDisplay();
         String userID = event.getAuthor().getId();
 
-
         // sjekker ulike typer kommando om samsvar med melding sendt
         switch (message){
             // bruker vil sjekke kontoen sin
@@ -51,6 +50,11 @@ public class AccountListener extends ListenerAdapter {
 
     }
 
+    /**
+     * sender en melding på discord om bruker sin balance
+     * @param userID bruker som spurte om balance
+     * @param event eventobjekt av melding sendt
+     */
     private void execBalanceCommand(String userID, MessageReceivedEvent event) {
         // prøver å hente balance til bruker fra database
         try {
@@ -60,6 +64,13 @@ public class AccountListener extends ListenerAdapter {
             event.getChannel().sendMessage("en feil has skjedd: " + e.getMessage()).queue();
         }
     }
+
+    /**
+     * funksjon som gir bruker litt mer balance
+     * @param userID bruker som vil ha mer balance
+     * @param event eventobjekt av melding som ble sendt
+     * @param addToBalance int av hvor mye som skal bli økt i balance
+     */
     private void execPrayCommand(String userID, MessageReceivedEvent event, int addToBalance){
         // prøver å øke balance til bruker med x antall sum
         try {

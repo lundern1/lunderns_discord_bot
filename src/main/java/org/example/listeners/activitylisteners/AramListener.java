@@ -1,4 +1,4 @@
-package org.example.listeners;
+package org.example.listeners.activitylisteners;
 
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;

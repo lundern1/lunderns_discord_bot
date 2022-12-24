@@ -1,7 +1,7 @@
 package org.example.games;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import org.example.database.ConnectionHandler;
+
 import org.example.database.UserHandler;
 import org.example.utils.MyUtils;
 

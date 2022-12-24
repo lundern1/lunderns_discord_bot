@@ -6,3 +6,4 @@ command;beskrivelse av command
 !xp;viser din total xp
 !messages;viser dine antall meldinger sendt
 !hentSkatt;henter en skatt om tilgjengelig
+!top;henter brukere med mest meldinger sendt

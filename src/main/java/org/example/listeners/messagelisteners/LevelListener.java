@@ -1,4 +1,4 @@
-package org.example.listeners;
+package org.example.listeners.messagelisteners;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
@@ -6,6 +6,9 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
 import org.example.database.ConnectionHandler;
 import org.example.database.LevelHandler;
+import org.example.embeds.EmbedHelpMessage;
+import org.example.embeds.EmbedMessagesMessage;
+import org.example.embeds.EmbedRoleMessage;
 
 public class LevelListener extends ListenerAdapter {
     private static final int XP = 10;
@@ -13,6 +16,11 @@ public class LevelListener extends ListenerAdapter {
     public void onReady(ReadyEvent event) {
         System.out.println("level listener klar!");
     }
+
+    /**
+     * funksjon som lytter på meldinger
+     * @param event eventobjekt som ble fyrt av sendt melding
+     */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         // henter melding og brukerID til bruker som sendte melding
@@ -36,6 +44,10 @@ public class LevelListener extends ListenerAdapter {
                 break;
             case "!messages":
                 getRow(userID, event, "messages");
+                break;
+            case "!top":
+                EmbedMessagesMessage embedMessagesMessage = new EmbedMessagesMessage(event);
+                event.getChannel().sendMessageEmbeds(embedMessagesMessage.build()).queue();
                 break;
         }
     }

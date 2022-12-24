@@ -5,9 +5,16 @@ import org.example.utils.FolderReader;
 
 import java.util.ArrayList;
 
+/**
+ * klasse for å lage embed-melding fra !rolesHere command
+ */
 public class EmbedRoleMessage extends EmbedBuilder {
     ArrayList<String[]> listOfFields;
     ArrayList<String> listOfEmojis;
+
+    /**
+     * konstruktør for å lage embed-melding
+     */
     public EmbedRoleMessage(){
         super();
         listOfEmojis = new ArrayList<>();
@@ -18,6 +25,7 @@ public class EmbedRoleMessage extends EmbedBuilder {
 
         listOfFields = FolderReader.getContentFromFile("rolesreaction.txt");
 
+        // looper gjennom antall roller hentet fra fil
         listOfFields.forEach(field ->{
             this.addField(field[0], field[1], false);
             String[] firsMsgSplit = field[0].split(" ");
@@ -25,6 +33,10 @@ public class EmbedRoleMessage extends EmbedBuilder {
         });
     }
 
+    /**
+     * funksjon som henter listen av emojier som representerer en rolle
+     * @return Arraylist av emojier som String
+     */
     public ArrayList<String> getListOfEmojis(){
         return listOfEmojis;
     }

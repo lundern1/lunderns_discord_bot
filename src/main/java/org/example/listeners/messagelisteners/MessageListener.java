@@ -1,4 +1,4 @@
-package org.example.listeners;
+package org.example.listeners.messagelisteners;
 
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
@@ -43,6 +43,8 @@ public class MessageListener extends ListenerAdapter {
             muligSkatt(event);
 
         String message = event.getMessage().getContentDisplay();
+
+        // switch test for å se om melding sendt tilsvarer en gyldig command
         switch (message){
             case ("test"):
                 testFunksjon(event);

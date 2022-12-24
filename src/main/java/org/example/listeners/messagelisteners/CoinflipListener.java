@@ -1,4 +1,4 @@
-package org.example.listeners;
+package org.example.listeners.messagelisteners;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -40,9 +40,16 @@ public class CoinflipListener extends ListenerAdapter {
 
     }
 
+    /**
+     * funksjon som setter i gang en coinflip
+     * @param userID bruker som vil coinflippe
+     * @param betAmount sum bruker vil coinflippe for
+     * @return String av coinflip resultat
+     */
     private String execFlip(String userID, int betAmount) {
         String returnMessage = "";
         Coinflip coinflip = new Coinflip(userID, betAmount);
+        // prøver å gjøre en coinflip
         try{
             returnMessage = coinflip.coinflipGame();
         } catch (Exception e) {

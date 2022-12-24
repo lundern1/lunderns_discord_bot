@@ -1,13 +1,21 @@
 package org.example.database;
 
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import org.example.Main;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import static org.example.database.ConnectionHandler.dataSource;
 import static org.example.database.ConnectionHandler.existsInTable;
 
+/**
+ * klasse som inneholder funksjoner som snakker med table level
+ */
 public class LevelHandler {
     public static final String TABLE_LEVEL = "level";
 
@@ -109,6 +117,47 @@ public class LevelHandler {
         } catch (SQLException e) {
             System.out.println("noe feil med database: " + e.getMessage());
             return false;
+        }
+    }
+
+    /**
+     * funksjon som henter alle rader fra en bestemt kolonne
+     * @param event eventobjekt som ble trigget av en melding sendt på discord
+     * @param kolonne kolonnen som skal hentes
+     * @return returnerer en Arraylist med String array med verdier i hver rad
+     */
+    public static ArrayList<String[]> getRowForAllUsers(MessageReceivedEvent event, String kolonne) {
+        ArrayList<String[]> listOfUsers = new ArrayList<>();
+
+        // query som henter ut alle rader i en kolonne(maks 10, burde vært parameterer eller const)
+        String getRowQuery = "SELECT id, " + kolonne + " FROM " + TABLE_LEVEL + " ORDER BY " + kolonne + " DESC LIMIT 10;";
+
+
+        // prøver å få en connection med databasen
+        try(Connection connection = dataSource.getConnection()){
+
+            // prøver på en prepare statement
+            try(PreparedStatement statement = connection.prepareStatement(getRowQuery)) {
+                String botID = Main.config.get("BOT_ID");
+                ResultSet rs = statement.executeQuery();
+
+                // for hver rad i spørreresultatet hentet fra db
+                while (rs.next()){
+                    String idFromDB = rs.getString("id");
+
+                    // unngår å ta med botten i melding
+                    if(!idFromDB.equals(botID)){
+                        int rowValueFromDB = rs.getInt(kolonne);
+                        User user = event.getJDA().retrieveUserById(idFromDB).complete();
+                        String[] rowFromDB = {user.getName(), String.valueOf(rowValueFromDB)};
+                        listOfUsers.add(rowFromDB);
+                    }
+                }
+                return listOfUsers;
+            }
+        } catch (SQLException e) {
+            System.out.println("feil med database: " + e.getMessage());
+            return null;
         }
     }
 }
