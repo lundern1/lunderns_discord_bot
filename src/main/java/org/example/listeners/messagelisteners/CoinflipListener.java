@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.database.ConnectionHandler;
 import org.example.database.UserHandler;
 import org.example.games.Coinflip;
+import org.example.utils.MyUtils;
 
 import static org.example.utils.MyUtils.getSumFromString;
 
@@ -19,6 +20,9 @@ public class CoinflipListener extends ListenerAdapter {
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
+        if (MyUtils.ifBotOrNotFromGuild(event))
+            return;
+
         String message = event.getMessage().getContentDisplay();
         String userID = event.getAuthor().getId();
 

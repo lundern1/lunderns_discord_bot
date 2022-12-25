@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.events.user.UserActivityStartEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
+import org.example.utils.MyUtils;
 
 import java.util.HashMap;
 
@@ -34,8 +35,12 @@ public class SpotifyListener extends ListenerAdapter {
      */
     @Override
     public void onUserActivityStart(UserActivityStartEvent event) {
+        if (MyUtils.ifBotOrNotFromGuild(event))
+            return;
+
         Activity activity = event.getNewActivity();
         RichPresence rp = activity.asRichPresence();
+
 
         // hvis man hører på spotify og forrige sang man hørte på ikke var lik som denne
         try {

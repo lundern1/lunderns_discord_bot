@@ -9,6 +9,7 @@ import org.example.database.LevelHandler;
 import org.example.embeds.EmbedHelpMessage;
 import org.example.embeds.EmbedMessagesMessage;
 import org.example.embeds.EmbedRoleMessage;
+import org.example.utils.MyUtils;
 
 public class LevelListener extends ListenerAdapter {
     private static final int XP = 10;
@@ -17,18 +18,23 @@ public class LevelListener extends ListenerAdapter {
         System.out.println("level listener klar!");
     }
 
+
     /**
      * funksjon som lytter på meldinger
      * @param event eventobjekt som ble fyrt av sendt melding
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
+        if (MyUtils.ifBotOrNotFromGuild(event))
+            return;
+
+
         // henter melding og brukerID til bruker som sendte melding
         String message = event.getMessage().getContentDisplay();
         String userID = event.getAuthor().getId();
 
         // hvis bruker ikke er botten kjør level-updates
-        if(!userID.equals(Main.config.get("BOT_ID"))){
+        if(!event.getAuthor().isBot()){
             updateMessages(userID, event);
             updateXp(userID);
             lookForLevelUp(event, userID);

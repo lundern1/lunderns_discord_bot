@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.events.user.UserActivityStartEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
+import org.example.utils.MyUtils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,6 +31,9 @@ public class AramListener extends ListenerAdapter {
      */
     @Override
     public void onUserActivityStart(UserActivityStartEvent event){
+        if (MyUtils.ifBotOrNotFromGuild(event))
+            return;
+
         Activity activity = event.getNewActivity();
         RichPresence rp = activity.asRichPresence();
 

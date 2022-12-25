@@ -16,6 +16,8 @@ public class KapteinSkatt {
      * @param event event trigget fra melding
      */
     public static void muligSkatt(MessageReceivedEvent event){
+
+
         int releaseSkatt = MyUtils.getRandomNumber(1, 20);
         // er tall 1? sjanse 1-20 for at det blir skatt
         if (releaseSkatt == 1){

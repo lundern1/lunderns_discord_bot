@@ -1,12 +1,22 @@
 package org.example.listeners.slashlisteners;
 
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
+import net.dv8tion.jda.api.exceptions.HierarchyException;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.Command;
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.utils.FileUpload;
 import org.example.utils.MyUtils;
 import java.io.File;
+import java.util.concurrent.TimeUnit;
+
 import static org.example.utils.FolderReader.getCommandsFromFile;
 import static org.example.utils.FolderReader.getImageFiles;
 
@@ -21,6 +31,9 @@ public class CommandListener extends ListenerAdapter {
      */
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
+        if (MyUtils.ifBotOrNotFromGuild(event))
+            return;
+
         String command = event.getName();
 
         // switch - hvilken slash blir fyrt

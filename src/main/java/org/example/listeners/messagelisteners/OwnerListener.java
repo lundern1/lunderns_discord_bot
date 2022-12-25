@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
 import org.example.embeds.EmbedRoleMessage;
+import org.example.utils.MyUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,9 @@ import java.util.List;
 public class OwnerListener extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
+        if (MyUtils.ifBotOrNotFromGuild(event))
+            return;
+
         String userID = event.getAuthor().getId();
         String message = event.getMessage().getContentDisplay();
         TextChannel textChannel = event.getChannel().asTextChannel();
@@ -25,7 +29,6 @@ public class OwnerListener extends ListenerAdapter {
         // prøv å hente eier sin ID fra .env fil
         try {
             String ownerID = Main.config.get("MY_USERID");
-
             // hvis gyldig bruker utfør switch test
             if (ownerID.equals(userID)) {
 

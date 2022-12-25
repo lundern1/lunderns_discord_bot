@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.example.Main;
 import org.example.embeds.EmbedHelpMessage;
 import org.example.embeds.EmbedRoleMessage;
+import org.example.utils.MyUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,9 +39,12 @@ public class MessageListener extends ListenerAdapter {
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
+        if (MyUtils.ifBotOrNotFromGuild(event))
+            return;
+
         String userID = event.getAuthor().getId();
-        if (!userID.equals(Main.config.get("BOT_ID")))
-            muligSkatt(event);
+
+        muligSkatt(event);
 
         String message = event.getMessage().getContentDisplay();
 

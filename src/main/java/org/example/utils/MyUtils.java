@@ -1,5 +1,10 @@
 package org.example.utils;
 
+import net.dv8tion.jda.api.events.Event;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.user.UserActivityStartEvent;
+
 import java.util.Random;
 
 /**
@@ -38,5 +43,33 @@ public class MyUtils {
         } catch (ArrayIndexOutOfBoundsException e){
             return -1;
         }
+    }
+
+    /**
+     * sjekker om event ikke kommer fra bruker eller ikke kommer fra guilt
+     * @param event event som blir sjekket
+     * @return returnerer false om bruker er bot eller event ikke er fra guild
+     */
+    public static boolean ifBotOrNotFromGuild(MessageReceivedEvent event){
+        return ((event.getAuthor().isBot() || !event.isFromGuild()));
+    }
+
+    /**
+     * sjekker om event ikke kommer fra bruker eller ikke kommer fra guilt
+     * @param event event som blir sjekket
+     * @return returnerer false om bruker er bot eller event ikke er fra guild
+     */
+    public static boolean ifBotOrNotFromGuild(UserActivityStartEvent event){
+        return ((event.getUser().isBot() || !event.getGuild().isMember(event.getMember())));
+
+    }
+
+    /**
+     * sjekker om event ikke kommer fra bruker eller ikke kommer fra guilt
+     * @param event event som blir sjekket
+     * @return returnerer false om bruker er bot eller event ikke er fra guild
+     */
+    public static boolean ifBotOrNotFromGuild(SlashCommandInteractionEvent event){
+        return ((event.getUser().isBot() || !event.getGuild().isMember(event.getMember())));
     }
 }

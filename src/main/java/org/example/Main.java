@@ -14,6 +14,7 @@ import static org.example.utils.JDASettings.createJDA;
  * - lytter på meldinger folk sender      *
  * - slash command for å få bilder        *
  * - '!' gambling spill                   *
+ * - ranksystem                           *
  * @lundern1 - github                     *
  ******************************************/
 public class Main {

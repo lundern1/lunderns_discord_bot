@@ -13,6 +13,7 @@ import org.example.listeners.messagelisteners.*;
 import org.example.listeners.reactionlisteners.RoleListener;
 import org.example.listeners.slashlisteners.CommandListener;
 
+
 /**
  * en klasse med alle funksjoner som omhandler JDA
  */
@@ -49,5 +50,5 @@ public class JDASettings {
                     new OwnerListener(),
                     new RoleListener()
             );
-        }
+    }
 }
